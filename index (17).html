@@ -1,0 +1,41 @@
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+// Dark / Light Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+});
+
+// Contact Form Mock Handler
+function handleSubmit(e) {
+    e.preventDefault();
+    alert('شكراً لتواصلك! تم استلام رسالتك بنجاح (يمكن ربط هذا النموذج بخدمات البريد الإلكتروني لاحقاً).');
+    e.target.reset();
+}
+
+// CV Download Simulation
+function downloadCV() {
+    window.print();
+}
